@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeminiVoice Interface</title>
+    <link rel="stylesheet" href="src/style/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-logo">GeminiVoice</div>
+      <div class="navbar-icons">
+        <button><i class="ri-information-fill"></i></button>
+        <button onclick="changeAPIKey()"><i class="ri-key-2-line"></i></button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="speak-icon">
+        <lord-icon
+          src="https://cdn.lordicon.com/cpmcynxu.json"
+          trigger="in"
+          delay="300"
+          state="in-reveal"
+          colors="primary:#ffffff,secondary:#545454"
+          style="width: 300px; height: 300px"
+        >
+        </lord-icon>
+      </div>
+      <div class="question-container">
+        <input
+          type="text"
+          id="question"
+          class="input-field"
+          placeholder="Me faça uma pergunta"
+          autocomplete="off"
+        />
+        <button type="submit" class="submit-button">
+          <i class="ri-search-2-line"></i>
+        </button>
+        <button class="stop-button hidden"><i class="ri-stop-fill"></i></button>
+        <audio id="send-sound" src="src/midia/send-sound.mp3"></audio>
+      </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module" src="src/javascript/script.js"></script>
+    <script>
+      function changeAPIKey() {
+        localStorage.removeItem("API_KEY");
+        window.location.href = "index.html";
+      }
+    </script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </body>
+</html>

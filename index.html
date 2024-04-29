@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeminiVoice Interface</title>
+  <link rel="stylesheet" href="src/style/style.css" />
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">GeminiVoice</div>
+    <div class="navbar-icons">
+      <button><i class="ri-information-fill"></i></button>
+      <button><i class="ri-key-2-line"></i></button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Digite a sua API KEY</h1>
+    <div class="key-information">
+      <input type="text" id="API_KEY">
+      <button onclick="saveAPIKey()" id="saveapi"><i class="ri-key-fill"></i></button>
+      <p>Não possui uma chave? <a href="https://ai.google.dev/?gad_source=1&gclid=CjwKCAjw57exBhAsEiwAaIxaZjT4jvm7wDmlt-GeAngwynCW2_bgpThCJuNprfHIFPEORnzv1EEJ3hoCeFkQAvD_BwE" target="_blank">Google API KEY</a></p>
+    </div>
+  </div>
+
+  <script>
+    const savedAPIKey = localStorage.getItem('API_KEY');
+    if (savedAPIKey) {
+      window.location.href = 'app.html';
+    }
+
+    function saveAPIKey() {
+      const apiKeyInput = document.getElementById('API_KEY');
+      const apiKey = apiKeyInput.value.trim();
+      if (apiKey !== '') {
+        localStorage.setItem('API_KEY', apiKey);
+        API_KEY = apiKey;
+        alert('API KEY salva com sucesso!');
+        window.location.href = 'app.html';
+      } else {
+        alert('Por favor, insira uma API KEY válida.');
+      }
+    }
+  </script>
+  
+  <script type="module" src="src/javascript/script.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</body>
+</html>
